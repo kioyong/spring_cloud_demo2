@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: mark-gateway
+
+server:
+  port: 8080
+#  servlet:
+#    context-path: /gateway
+
+mark-service:
+  ribbon:
+#    listOfServers: 127.0.0.1:9002,127.0.0.1:9001
+    listOfServers: http://localhost:9001
+#    ServerListRefreshInterval: 15000
+#    ConnectTimeout: 500
+#    ReadTimeout: 1000
+#    MaxTotalHttpConnections: 500
+#    MaxConnectionsPerHost: 100
+
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 50000
+
+
+
+feign:
+  hystrix:
+    enabled: true
+#  compression:
+#    request.enabled: true
+#    response:enabled: true
+
+
+ribbon:
+  eureka:
+    enabled: false
+
+logging:
+  level:
+    com.yong.gateway.client: DEBUG

@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: gateway
+
+server:
+  port: 8081
+#  servlet:
+#    context-path: /gateway
+
+zuul:
+  routes:
+    mark-service:
+      path: /books/**
+      serviceId: mark-service
+#      stripPrefix: false
+
+mark-service:
+  ribbon:
+    listOfServers: http://localhost:9001
+    ContectTimeOut: 3000
+    ReadTimeOut: 50000
+
+ribbon:
+  eureka:
+    enabled: false
