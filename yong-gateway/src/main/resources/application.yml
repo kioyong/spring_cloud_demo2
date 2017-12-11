@@ -3,7 +3,7 @@ spring:
     name: gateway
 
 server:
-  port: 8081
+  port: 8082
 #  servlet:
 #    context-path: /gateway
 
@@ -23,3 +23,15 @@ mark-service:
 ribbon:
   eureka:
     enabled: false
+
+
+security:
+  oauth2:
+    client:
+      clientId: yong
+      clientSecret: passw0rd
+      accessTokenUri: localhost:8081/api/oauth/token
+      userAuthorizationUri: localhost:8081/api/oauth/authorize
+    resource:
+      userInfoUri: http://127.0.0.1:8081/api/user/me
+      preferTokenInfo: false
