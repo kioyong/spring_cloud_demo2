@@ -30,8 +30,8 @@ security:
     client:
       clientId: yong
       clientSecret: passw0rd
-      accessTokenUri: localhost:8081/api/oauth/token
-      userAuthorizationUri: localhost:8081/api/oauth/authorize
+      accessTokenUri: http://127.0.0.1:8081/api/oauth/token
+      userAuthorizationUri: http://127.0.0.1:8081/api/oauth/authorize
     resource:
       userInfoUri: http://127.0.0.1:8081/api/user/me
       preferTokenInfo: false

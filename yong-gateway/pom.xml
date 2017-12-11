@@ -30,9 +30,8 @@
 			<artifactId>spring-cloud-starter-zuul</artifactId>
 		</dependency>
         <dependency>
-            <groupId>com.yong.resource</groupId>
-            <artifactId>yong-resourceServer-lib</artifactId>
-            <version>1.0.0</version>
+            <groupId>org.springframework.security.oauth</groupId>
+            <artifactId>spring-security-oauth2</artifactId>
         </dependency>
     </dependencies>
 
