@@ -23,8 +23,6 @@ import java.util.List;
 @SpringBootApplication
 @EnableZuulProxy
 @EnableOAuth2Client
-//@EnableOAuth2Sso
-//TODO try to enable Sso
 @EnableResourceServer
 @ConfigurationProperties(prefix = "yong.unprotected")
 public class GateWayApplication extends ResourceServerConfigurerAdapter{

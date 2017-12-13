@@ -1,0 +1,22 @@
+server:
+  port: 8003
+
+spring:
+  application:
+    name: yong-kafka-receive
+  cloud:
+    stream:
+      kafka:
+        binders:
+          - 127.0.0.1
+        zk-nodes:
+          - 127.0.0.1
+      default:
+        group: ${spring.application.name}
+#        content-type: application/x-java-serialized-object;type=com.mce.gems.event.entity.TableGamesEvent
+        contentType: application/json
+      bindings:
+        demoOutput:
+          destination: yong.demo.data
+        demoIntput:
+          destination: yong.demo.data

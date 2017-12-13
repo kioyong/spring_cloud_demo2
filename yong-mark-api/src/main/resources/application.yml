@@ -10,7 +10,7 @@ server:
 mark-service:
   ribbon:
 #    listOfServers: 127.0.0.1:9002,127.0.0.1:9001
-    listOfServers: http://localhost:9001
+    listOfServers: http://127.0.0.1:9001
 #    ServerListRefreshInterval: 15000
 #    ConnectTimeout: 500
 #    ReadTimeout: 1000

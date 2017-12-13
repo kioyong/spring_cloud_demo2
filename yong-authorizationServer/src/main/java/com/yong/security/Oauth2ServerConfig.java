@@ -1,6 +1,6 @@
 package com.yong.security;
 
-import com.yong.security.filter.CorsFilter;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -30,7 +30,6 @@ import org.springframework.security.oauth2.provider.token.DefaultUserAuthenticat
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
-import org.springframework.security.web.access.channel.ChannelProcessingFilter;
 
 /**
  * @author  LiangYong
@@ -42,10 +41,10 @@ public class Oauth2ServerConfig {
     @Configuration
     @EnableWebSecurity
     @Order(-1)
+    @AllArgsConstructor
     protected static class WebSecurityConfig extends WebSecurityConfigurerAdapter  {
 
-        @Autowired
-        private UserDetailsService userDetailsService;
+        private final UserDetailsService userDetailsService;
 
         @Override
         public void configure(@Autowired AuthenticationManagerBuilder auth) throws Exception {
@@ -57,7 +56,6 @@ public class Oauth2ServerConfig {
         protected void configure(HttpSecurity http) throws Exception {
             /**
              * **/
-            http.addFilterBefore(new CorsFilter(), ChannelProcessingFilter.class);
             http.requestMatchers().antMatchers(HttpMethod.OPTIONS, "/oauth/**")
                     .and().authorizeRequests().anyRequest().permitAll()
                     .and().csrf().disable().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
