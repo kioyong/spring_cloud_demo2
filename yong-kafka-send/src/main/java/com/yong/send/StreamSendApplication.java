@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 
 @SpringBootApplication
-@EnableBinding({DemoProcessor.class})
+@EnableBinding({DemoSource.class,DemoSink.class})
 @EnableAutoConfiguration
 public class StreamSendApplication {
 
