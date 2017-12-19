@@ -1,23 +1,44 @@
 server:
   port: 8084
 
+management:
+  security:
+    enabled: false
+
 spring:
   application:
     name: yong-kafka-send
+  kafka:
+    consumer:
+      auto-offset-reset: earliest
+      group-id: testEmbeddedKafkaApplication
+      key-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
   cloud:
     stream:
-      kafka:
-        binders:
-          - 127.0.0.1
-        zk-nodes:
-          - 127.0.0.1
-      default:
-        group: ${spring.application.name}
-#        content-type: application/x-java-serialized-object;type=com.mce.gems.event.entity.TableGamesEvent
-        contentType: application/json
       bindings:
-        demoOutput:
-          destination: yong.demo.data
-        demoIntput:
-          destination: yong.demo.data
-
+        demoIn:
+          destination: demo
+          consumer:
+            headerMode: raw
+          group: embeddedKafkaApplication
+#          content-type: application/x-java-serialized-object;type=java.lang.String
+#          content-type: application/json
+        demoOut:
+          destination: demo
+          producer:
+            headerMode: raw
+#          content-type: application/x-java-serialized-object;type=java.lang.String
+#          content-type: text/plain
+#          content-type: application/json
+#      kafka:
+#        binder:
+#          binders:
+#            - 127.0.0.1
+#          zk-nodes:
+#            - 127.0.0.1
+#          replicationFactor: 1
+#          autoCreateTopics: true
+#      default:
+#        group: ${spring.application.name}
+#        content-type: application/x-java-serialized-object;type=java.lang.String

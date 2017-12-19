@@ -1,4 +1,4 @@
-package com.yong.gateway;
+package com.yong.send;
 
 import feign.Logger;
 import org.springframework.boot.SpringApplication;

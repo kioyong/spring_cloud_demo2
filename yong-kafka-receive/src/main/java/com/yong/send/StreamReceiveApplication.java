@@ -1,4 +1,4 @@
-package com.yong.gateway;
+package com.yong.send;
 
 import com.yong.stream.common.channel.DemoSink;
 import org.springframework.boot.SpringApplication;

@@ -18,5 +18,5 @@ spring:
       bindings:
         demoOutput:
           destination: yong.demo.data
-        demoIntput:
+        demoInput:
           destination: yong.demo.data

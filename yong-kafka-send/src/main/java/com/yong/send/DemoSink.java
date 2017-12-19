@@ -1,15 +1,15 @@
-package com.yong.stream.common.channel;
+package com.yong.send;
 
 import org.springframework.cloud.stream.annotation.Input;
 import org.springframework.messaging.SubscribableChannel;
 
 /**
  * @acthor yong.a.liang
- * @date 2017/12/13
+ * @date 2017/12/15
  */
 public interface DemoSink {
-    String DEMO_INPUT = "demoInput";
+    String DEMO_INPUT = "demoIn";
 
     @Input(DEMO_INPUT)
-    SubscribableChannel demoInput();
+    SubscribableChannel input();
 }

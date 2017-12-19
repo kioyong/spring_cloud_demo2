@@ -1,4 +1,4 @@
-package com.yong.gateway.client;
+package com.yong.send.client;
 
 import com.yong.model.Mark;
 import org.springframework.cloud.netflix.feign.FeignClient;
