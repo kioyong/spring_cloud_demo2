@@ -5,8 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.context.ApplicationContext;
 import org.springframework.integration.support.MessageBuilder;
-import org.springframework.messaging.Message;
-import org.springframework.messaging.MessageChannel;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,7 +34,7 @@ public class DemoController {
 
 
     @StreamListener(DemoSink.DEMO_INPUT)
-    public void handleIn(Message<String> name){
+    public void handleIn(String name){
         log.info("handle kafka in message: {}",name);
     }
 }

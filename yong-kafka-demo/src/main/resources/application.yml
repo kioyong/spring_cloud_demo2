@@ -18,10 +18,12 @@ spring:
       bindings:
         demoIn:
           destination: demo
-          consumer:
-            headerMode: raw
+          content-type: application/x-java-serialized-object;type=java.lang.String
+#          consumer:
+#            headerMode: raw
           group: testGroup
         demoOut:
           destination: demo
-          producer:
-            headerMode: raw
+          content-type: application/x-java-serialized-object;type=java.lang.String
+#          producer:
+#            headerMode: raw

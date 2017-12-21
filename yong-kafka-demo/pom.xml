@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.yong.kafka.send</groupId>
-	<artifactId>yong-kafka-send</artifactId>
+	<groupId>com.yong.kafka.demo</groupId>
+	<artifactId>yong-kafka-demo</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
-	<name>yong-kafka-send</name>
+	<name>yong-kafka-demo</name>
 	<description>Demo project for Spring Boot</description>
 
     <parent>
