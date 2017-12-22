@@ -1,6 +1,6 @@
 server:
-#  port: 9002
-  port: 9001
+  port: 9002
+#  port: 9001
 
 spring:
   application:
@@ -13,3 +13,7 @@ spring:
 logging:
   level:
     com.yong: DEBUG
+
+management:
+  security:
+    enabled: false

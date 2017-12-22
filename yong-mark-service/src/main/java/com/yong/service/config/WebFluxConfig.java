@@ -17,7 +17,6 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
  * @date 2017/11/17
  */
 @Component
-@EnableWebFlux
 public class WebFluxConfig implements WebFluxConfigurer {
 
     @Override
@@ -27,14 +26,4 @@ public class WebFluxConfig implements WebFluxConfigurer {
     }
 
 
-    @Bean
-    public RouterFunction<ServerResponse> routerFunction(MarkHandler echoHandler) {
-        return route(GET("/hello"), echoHandler::helloWorld)
-                .andRoute(GET("//mark/{id}"), echoHandler::findOneMark)
-                .andRoute(GET("/mark"), echoHandler::findAllMark)
-                .andRoute(POST("/mark"), echoHandler::addMark)
-                .andRoute(PUT("/mark"), echoHandler::updateMark)
-                .andRoute(OPTIONS("/**"),echoHandler::optionsRequest)
-                ;
-    }
 }

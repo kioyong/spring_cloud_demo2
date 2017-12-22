@@ -27,4 +27,9 @@ public class MarkController{
     public List<Mark> getAllMrk(){
         return client.getAllMark();
     }
+
+    @GetMapping("/test")
+    public String testDevTools(){
+        return "hello devTools->7";
+    }
 }
