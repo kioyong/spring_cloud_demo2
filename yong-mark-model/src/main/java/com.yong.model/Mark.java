@@ -1,7 +1,6 @@
 package com.yong.model;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 
 import java.text.SimpleDateFormat;
@@ -16,15 +15,16 @@ import java.util.List;
  */
 @Data
 @Builder
-public class Mark {
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString(callSuper = true)
+public class Mark extends BaseEntity{
     @Id private String id;
 //    @NotNull
 //    TODO
     private String title,type;
     private boolean isActivity,isLocked;
     private List<Item> item;
-        private Date createdDate,lastModifiedDate;
-    private String createdBy,lastModifiedBy;
 
     public static Mark updateMark(Mark oldRecord, Mark newRecord){
         oldRecord.setActivity(newRecord.isActivity());
@@ -33,12 +33,6 @@ public class Mark {
         oldRecord.setTitle(newRecord.getTitle());
         oldRecord.setType(newRecord.getType());
         return oldRecord;
-    }
-
-    @Override
-    public String toString(){
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd");
-        return "id = " + id + ", type = "+ type + ", createdDate = " + simpleDateFormat.format(createdDate);
     }
 
 }

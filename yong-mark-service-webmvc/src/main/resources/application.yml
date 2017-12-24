@@ -1,0 +1,19 @@
+server:
+  port: 9003
+#  port: 9004
+
+spring:
+  application:
+      name: mark
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/demo2
+      database: demo2
+
+logging:
+  level:
+    com.yong: DEBUG
+
+management:
+  security:
+    enabled: false

@@ -1,4 +1,4 @@
-package com.yong.send;
+package com.yong.gateway;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

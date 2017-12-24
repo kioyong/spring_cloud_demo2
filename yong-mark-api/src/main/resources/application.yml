@@ -1,11 +1,11 @@
 spring:
   application:
-    name: mark-send
+    name: mark-gateway
 
 server:
   port: 8080
 #  servlet:
-#    context-path: /send
+#    context-path: /gateway
 
 mark-service:
   ribbon:
@@ -35,4 +35,4 @@ ribbon:
 
 logging:
   level:
-    com.yong.send.client: DEBUG
+    com.yong.gateway.client: DEBUG

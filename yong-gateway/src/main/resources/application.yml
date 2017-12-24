@@ -1,11 +1,11 @@
 spring:
   application:
-    name: send
+    name: gateway
 
 server:
   port: 8082
 #  servlet:
-#    context-path: /send
+#    context-path: /gateway
 
 zuul:
   routes:

@@ -1,4 +1,4 @@
-package com.yong.send;
+package com.yong.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,6 +14,7 @@ import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResour
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,7 @@ import java.util.List;
 @EnableOAuth2Client
 @EnableResourceServer
 @ConfigurationProperties(prefix = "yong.unprotected")
+@EnableWebMvc
 public class GateWayApplication extends ResourceServerConfigurerAdapter{
 
   public static void main(String[] args) {

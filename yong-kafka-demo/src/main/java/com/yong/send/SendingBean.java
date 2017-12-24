@@ -1,4 +1,4 @@
-package com.yong.send;
+package com.yong.gateway;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.support.MessageBuilder;

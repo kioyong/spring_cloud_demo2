@@ -1,4 +1,4 @@
-package com.yong.send;
+package com.yong.gateway;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +28,7 @@ public class DemoController {
         log.info("start get hello Message: {} ",name);
         source.output().send(MessageBuilder.withPayload(name).build());
 //        MessageChannel channel = (MessageChannel)applicationContext.getBean("demoOut");
-//        channel.send(MessageBuilder.withPayload(name).build());
+//        channel.gateway(MessageBuilder.withPayload(name).build());
         return "hello World! Send Stream successful " + name;
     }
 

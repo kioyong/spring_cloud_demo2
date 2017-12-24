@@ -1,4 +1,4 @@
-package com.yong.send;
+package com.yong.gateway;
 
 import org.springframework.cloud.stream.annotation.Output;
 import org.springframework.messaging.MessageChannel;
