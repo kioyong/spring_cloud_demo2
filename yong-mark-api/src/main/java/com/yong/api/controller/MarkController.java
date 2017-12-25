@@ -1,6 +1,6 @@
-package com.yong.gateway.controller;
+package com.yong.api.controller;
 
-import com.yong.gateway.client.MarkClient;
+import com.yong.api.client.MarkClient;
 import com.yong.model.Mark;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
