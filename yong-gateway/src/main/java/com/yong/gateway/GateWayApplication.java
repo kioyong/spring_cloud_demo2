@@ -14,7 +14,6 @@ import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResour
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,12 +24,11 @@ import java.util.List;
 @EnableOAuth2Client
 @EnableResourceServer
 @ConfigurationProperties(prefix = "yong.unprotected")
-@EnableWebMvc
-public class GateWayApplication extends ResourceServerConfigurerAdapter{
+public class GateWayApplication extends ResourceServerConfigurerAdapter {
 
-  public static void main(String[] args) {
-    SpringApplication.run(GateWayApplication.class, args);
-  }
+    public static void main(String[] args) {
+        SpringApplication.run(GateWayApplication.class, args);
+    }
 
     private List<String> urls = new ArrayList<>();
 
