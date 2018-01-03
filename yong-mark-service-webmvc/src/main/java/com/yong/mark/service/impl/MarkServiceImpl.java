@@ -5,6 +5,8 @@ import com.yong.mark.service.MarkService;
 import com.yong.model.Mark;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,10 +27,18 @@ public class MarkServiceImpl implements MarkService {
 
 
     @Override
+    @Cacheable("test")
     public Mark findOneMark(String id) {
         log.debug("before findOneMark");
         Optional<Mark> opt = markRepository.findById(id);
         log.debug("after findOneMark");
+        checkArgument(opt.isPresent(), "mark not found!");
+        return opt.get();
+    }
+
+    @CachePut("test")
+    public Mark findOneMarkLatest(String id){
+        Optional<Mark> opt = markRepository.findById(id);
         checkArgument(opt.isPresent(), "mark not found!");
         return opt.get();
     }

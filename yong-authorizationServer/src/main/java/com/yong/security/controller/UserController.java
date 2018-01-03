@@ -5,7 +5,10 @@ import com.yong.security.model.ResponseVo;
 import com.yong.security.model.UserEntity;
 import com.yong.security.service.impl.UserDetailServiceImpl;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -46,10 +49,12 @@ public class UserController {
         return principal;
     }
 
-
-
     @GetMapping("/test")
-    public String test(){
-        return "hello test";
+    public ResponseEntity test(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return ResponseEntity.ok(authentication);
     }
+
+
+
 }

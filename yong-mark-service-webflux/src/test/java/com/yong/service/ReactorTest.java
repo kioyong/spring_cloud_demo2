@@ -56,40 +56,40 @@ public class ReactorTest {
     /**
      * 自定义排序测试
      **/
-    @Test
-    public void test5() {
-        List<Mark> marks = initData();
-//        marks.sort(Comparator.comparing(s1 -> s1.getCreatedDate()));
-        List<Mark> collect = marks.stream().sorted(
-            (s1, s2) -> {
-                if (s1.getType().equals(s2.getType())) {
-                    return s2.getCreatedDate().compareTo(s1.getCreatedDate());
-                } else {
-                    int t1 = s1.getType().equals("Alert") ? 1 : s1.getType().equals("Priority") ? 2 : 3;
-                    int t2 = s2.getType().equals("Alert") ? 1 : s2.getType().equals("Priority") ? 2 : 3;
-                    return t1 - t2;
-                }
+//    @Test
+//    public void test5() {
+////        List<Mark> marks = initData();
+////        marks.sort(Comparator.comparing(s1 -> s1.getCreatedDate()));
+//        List<Mark> collect = marks.stream().sorted(
+//            (s1, s2) -> {
+//                if (s1.getType().equals(s2.getType())) {
+//                    return s2.getCreatedDate().compareTo(s1.getCreatedDate());
+//                } else {
+//                    int t1 = s1.getType().equals("Alert") ? 1 : s1.getType().equals("Priority") ? 2 : 3;
+//                    int t2 = s2.getType().equals("Alert") ? 1 : s2.getType().equals("Priority") ? 2 : 3;
+//                    return t1 - t2;
+//                }
+//
+//            }
+//        ).collect(Collectors.toList());
+//        System.out.println(marks);
+//        System.out.println(collect);
+//
+//    }
 
-            }
-        ).collect(Collectors.toList());
-        System.out.println(marks);
-        System.out.println(collect);
-
-    }
-
-    public List<Mark> initData() {
-        Mark m1 = Mark.builder().id("1").title("1").type("Alert").createdDate(new Date(1513221535641L)).build();
-        Mark m2 = Mark.builder().id("2").title("2").type("Alert").createdDate(new Date(1512962229000L)).build();
-        Mark m3 = Mark.builder().id("3").title("3").type("Priority").createdDate(new Date(1516241532641L)).build();
-        Mark m4 = Mark.builder().id("4").title("4").type("Priority").createdDate(new Date(1511261534141L)).build();
-        Mark m5 = Mark.builder().id("5").title("5").type("Priority").createdDate(new Date(1533211533141L)).build();
-        Mark m6 = Mark.builder().id("6").title("6").type("Priority").createdDate(new Date(1503221533641L)).build();
-        Mark m7 = Mark.builder().id("7").title("7").type("Normal").createdDate(new Date(1512221332141L)).build();
-        Mark m8 = Mark.builder().id("8").title("8").type("Normal").createdDate(new Date(1563221134641L)).build();
-        Mark m9 = Mark.builder().id("9").title("9").type("Normal").createdDate(new Date(1543221431641L)).build();
-        List<Mark> list = Arrays.asList(m7, m2, m3, m5, m4, m9, m1, m6, m8);
-        return list;
-    }
+//    public List<Mark> initData() {
+//        Mark m1 = Mark.builder().id("1").title("1").type("Alert").createdDate(new Date(1513221535641L)).build();
+//        Mark m2 = Mark.builder().id("2").title("2").type("Alert").createdDate(new Date(1512962229000L)).build();
+//        Mark m3 = Mark.builder().id("3").title("3").type("Priority").createdDate(new Date(1516241532641L)).build();
+//        Mark m4 = Mark.builder().id("4").title("4").type("Priority").createdDate(new Date(1511261534141L)).build();
+//        Mark m5 = Mark.builder().id("5").title("5").type("Priority").createdDate(new Date(1533211533141L)).build();
+//        Mark m6 = Mark.builder().id("6").title("6").type("Priority").createdDate(new Date(1503221533641L)).build();
+//        Mark m7 = Mark.builder().id("7").title("7").type("Normal").createdDate(new Date(1512221332141L)).build();
+//        Mark m8 = Mark.builder().id("8").title("8").type("Normal").createdDate(new Date(1563221134641L)).build();
+//        Mark m9 = Mark.builder().id("9").title("9").type("Normal").createdDate(new Date(1543221431641L)).build();
+//        List<Mark> list = Arrays.asList(m7, m2, m3, m5, m4, m9, m1, m6, m8);
+//        return list;
+//    }
 
     @Test
     public void test6() {
