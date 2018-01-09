@@ -5,6 +5,7 @@ import com.yong.mark.service.MarkService;
 import com.yong.model.Mark;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,12 +17,12 @@ import static com.google.common.base.Preconditions.checkArgument;
  * @author LiangYong
  * @date 2017/12/24
  */
-@AllArgsConstructor
 @Service
 @Slf4j
 public class MarkServiceImpl implements MarkService {
 
-    private final MarkRepository markRepository;
+    @Autowired
+    private MarkRepository markRepository;
 
 
     @Override

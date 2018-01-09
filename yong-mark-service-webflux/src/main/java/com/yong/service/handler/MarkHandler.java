@@ -45,6 +45,7 @@ public class MarkHandler {
 
 
     public Mono<ServerResponse> updateMark(final ServerRequest request) {
+
         return request.bodyToMono(Mark.class).flatMap(t ->
             repository.findById(t.getId())
                 .switchIfEmpty(

@@ -3,15 +3,16 @@ package com.yong.mark.service.impl;
 import com.yong.mark.repository.SequencesRepository;
 import com.yong.model.Sequences;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-@AllArgsConstructor
 @Service
 public class SequenceServiceImpl {
 
-    private final SequencesRepository sequencesRepository;
+    @Autowired
+    private SequencesRepository sequencesRepository;
 
     public int getNextSequence(String className){
         Optional<Sequences> opt = sequencesRepository.findById(className);
