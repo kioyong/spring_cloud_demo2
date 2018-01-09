@@ -12,6 +12,7 @@ public interface MarkService {
 
 
     Mark findOneMark(String id);
+    Mark findOneMarkLatest(String id);
     List<Mark> findAllMark();
     Mark saveMark(Mark mark);
     Mark updateMark(Mark mark);

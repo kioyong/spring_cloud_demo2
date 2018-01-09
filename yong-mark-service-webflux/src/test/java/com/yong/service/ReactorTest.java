@@ -58,8 +58,8 @@ public class ReactorTest {
      **/
 //    @Test
 //    public void test5() {
-//        List<Mark> marks = initData();
-//        marks.sort(Comparator.comparing(s1 -> s1.getCreatedDate()));
+////        List<Mark> marks = initData();
+////        marks.sort(Comparator.comparing(s1 -> s1.getCreatedDate()));
 //        List<Mark> collect = marks.stream().sorted(
 //            (s1, s2) -> {
 //                if (s1.getType().equals(s2.getType())) {
@@ -74,7 +74,7 @@ public class ReactorTest {
 //        ).collect(Collectors.toList());
 //        System.out.println(marks);
 //        System.out.println(collect);
-
+//
 //    }
 
 //    public List<Mark> initData() {

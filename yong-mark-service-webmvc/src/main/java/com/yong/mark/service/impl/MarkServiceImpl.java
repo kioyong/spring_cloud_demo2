@@ -5,7 +5,8 @@ import com.yong.mark.service.MarkService;
 import com.yong.model.Mark;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,19 +18,27 @@ import static com.google.common.base.Preconditions.checkArgument;
  * @author LiangYong
  * @date 2017/12/24
  */
+@AllArgsConstructor
 @Service
 @Slf4j
 public class MarkServiceImpl implements MarkService {
 
-    @Autowired
-    private MarkRepository markRepository;
+    private final MarkRepository markRepository;
 
 
     @Override
+    @Cacheable("test")
     public Mark findOneMark(String id) {
         log.debug("before findOneMark");
         Optional<Mark> opt = markRepository.findById(id);
         log.debug("after findOneMark");
+        checkArgument(opt.isPresent(), "mark not found!");
+        return opt.get();
+    }
+
+    @CachePut("test")
+    public Mark findOneMarkLatest(String id){
+        Optional<Mark> opt = markRepository.findById(id);
         checkArgument(opt.isPresent(), "mark not found!");
         return opt.get();
     }

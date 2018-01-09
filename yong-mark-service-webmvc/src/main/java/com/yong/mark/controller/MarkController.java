@@ -28,6 +28,11 @@ public class MarkController {
         return markService.findOneMark(id);
     }
 
+    @GetMapping("/cache/{id}")
+    private Mark findOneMarkLatest(@PathVariable("id") String id) {
+        return markService.findOneMarkLatest(id);
+    }
+
     @GetMapping
     private List<Mark> getAllMark() {
         return markService.findAllMark();
