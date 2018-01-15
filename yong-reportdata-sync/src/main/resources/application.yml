@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: gateway
+
+server:
+  port: 8082
+#  servlet:
+#    context-path: /gateway
+
+zuul:
+  routes:
+    mark-service:
+      path: /books/**
+      serviceId: mark-service
+#      stripPrefix: false
+
+mark-service:
+  ribbon:
+#    listOfServers: http://127.0.0.1:9001,http://127.0.0.1:9002,http://127.0.0.1:9003,http://127.0.0.1:9004
+#    listOfServers: http://yong-mark-service
+    listOfServers: http://127.0.0.1:9003
+    ContectTimeOut: 3000
+    ReadTimeOut: 50000
+
+ribbon:
+  eureka:
+    enabled: false
+
+
+security:
+  oauth2:
+    client:
+      clientId: yong
+      clientSecret: passw0rd
+      accessTokenUri: http://localhost:8081/api/oauth/token
+      userAuthorizationUri: http://localhost:8081/api/oauth/authorize
+    resource:
+      userInfoUri: http://localhost:8081/api/user/me
+      preferTokenInfo: false

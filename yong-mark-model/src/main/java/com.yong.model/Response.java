@@ -24,4 +24,8 @@ public class Response {
         return new Response(message,-1,null);
     }
 
+    public static Response fail(String message,Object playload){
+        return new Response(message,-1,playload);
+    }
+
 }

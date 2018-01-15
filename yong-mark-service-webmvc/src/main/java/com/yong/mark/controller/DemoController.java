@@ -1,6 +1,7 @@
 package com.yong.mark.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -24,5 +25,10 @@ public class DemoController {
 //        restTemplate.postForEntity("http://localhost:8080/hello",name,null );
 //        return forObject;
         return "hello from mark service webmvc!" + name;
+    }
+
+    @GetMapping("/error")
+    private String error(){
+        throw new RuntimeException("oh !~!@#!");
     }
 }

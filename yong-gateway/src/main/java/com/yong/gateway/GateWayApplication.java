@@ -42,6 +42,7 @@ public class GateWayApplication extends ResourceServerConfigurerAdapter {
             .antMatchers(HttpMethod.GET, "/*.html", "/**/*.css", "/**/*.js", "/**/*.png").permitAll()
             .regexMatchers(urls.stream().toArray(String[]::new)).permitAll()
             .anyRequest().authenticated().and().csrf().disable().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
     }
 
     @Bean

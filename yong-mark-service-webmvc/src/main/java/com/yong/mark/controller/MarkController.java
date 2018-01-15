@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author LiangYong
@@ -35,7 +37,12 @@ public class MarkController {
 
     @GetMapping
     private List<Mark> getAllMark() {
+        Optional<Mark> ops = markService.findAllMark().stream().max(Comparator.comparing(Mark::getCreatedDate));
+        if(ops.isPresent()){
+            Mark mark = ops.get();
+        }
         return markService.findAllMark();
+
     }
 
     @PostMapping

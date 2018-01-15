@@ -24,10 +24,10 @@ import static com.google.common.base.Preconditions.checkArgument;
 public class MarkServiceImpl implements MarkService {
 
     private final MarkRepository markRepository;
-
+    private final SequenceServiceImpl sequenceService;
 
     @Override
-    @Cacheable("test")
+    @Cacheable("testsdsd")
     public Mark findOneMark(String id) {
         log.debug("before findOneMark");
         Optional<Mark> opt = markRepository.findById(id);
@@ -36,7 +36,7 @@ public class MarkServiceImpl implements MarkService {
         return opt.get();
     }
 
-    @CachePut("test")
+    @CachePut("testsdsd")
     public Mark findOneMarkLatest(String id){
         Optional<Mark> opt = markRepository.findById(id);
         checkArgument(opt.isPresent(), "mark not found!");

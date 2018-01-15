@@ -14,16 +14,16 @@ public class SequenceServiceImpl {
     @Autowired
     private SequencesRepository sequencesRepository;
 
-    public int getNextSequence(String className){
+    public String getNextSequence(String className){
         Optional<Sequences> opt = sequencesRepository.findById(className);
         if(opt.isPresent()){
             Sequences sequences = opt.get();
             sequences.setNumber(sequences.getNumber()+1);
             sequencesRepository.save(sequences);
-            return sequences.getNumber();
+            return sequences.getNumber()+"";
         }else{
             Sequences sequences = sequencesRepository.insert(new Sequences(className, 1));
-            return sequences.getNumber();
+            return sequences.getNumber()+"";
         }
     }
 }
