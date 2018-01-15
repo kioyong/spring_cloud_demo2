@@ -19,7 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString(callSuper = true)
-public class Mark extends BaseEntity{
+public class Mark extends BaseEntity implements Comparable<Mark>{
     @Id private String id;
 //    @NotNull
 //    TODO
@@ -36,4 +36,8 @@ public class Mark extends BaseEntity{
         return oldRecord;
     }
 
+    @Override
+    public int compareTo(Mark o) {
+        return this.getCreatedDate().compareTo(o.getCreatedDate());
+    }
 }
