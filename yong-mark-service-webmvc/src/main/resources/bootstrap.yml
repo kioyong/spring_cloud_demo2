@@ -9,7 +9,14 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017/demo2
       database: demo2
+  profiles:
+    active: dev
+  cloud:
+#    uri: https://gemsv2-dev-config.melco-resorts.com/config/
 
+  devtools:
+    reload:
+      trigger-file: .reloadtrigger
 logging:
   level:
     com.yong: DEBUG
@@ -17,3 +24,7 @@ logging:
 management:
   security:
     enabled: false
+
+yong:
+  string: "from bootstrap.yml"
+
