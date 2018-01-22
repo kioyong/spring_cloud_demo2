@@ -34,7 +34,7 @@ public class DemoController {
         return "hello from mark service webmvc!" + name;
     }
 
-    @GetMapping("/error")
+    @GetMapping("/error1")
     private String error() {
         throw new RuntimeException("oh !~!@#!");
     }

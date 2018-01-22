@@ -37,10 +37,6 @@ public class MarkController {
 
     @GetMapping
     private List<Mark> getAllMark() {
-        Optional<Mark> ops = markService.findAllMark().stream().max(Comparator.comparing(Mark::getCreatedDate));
-        if(ops.isPresent()){
-            Mark mark = ops.get();
-        }
         return markService.findAllMark();
 
     }
