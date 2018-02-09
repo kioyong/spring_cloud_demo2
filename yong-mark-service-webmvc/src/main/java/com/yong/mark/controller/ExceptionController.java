@@ -61,8 +61,8 @@ public class ExceptionController {
             return Response.fail(Throwables.getRootCause(ex).getMessage(), null);
         }
     }
-    @ExceptionHandler(IllegalArgumentException.class)
-    public void handleArgumentException(IllegalArgumentException ex) {
-        log.debug("also handle ArgumentException!");
-    }
+//    @ExceptionHandler(IllegalArgumentException.class)
+//    public void handleArgumentException(IllegalArgumentException ex) {
+//        log.debug("also handle ArgumentException!");
+//    }
 }
