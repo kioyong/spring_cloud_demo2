@@ -1,6 +1,7 @@
 package com.yong.mark.repository.impl;
 
 import com.yong.mark.model.HotPlayerPatron;
+import com.yong.mark.model.PatronValue;
 import com.yong.mark.repository.MarkRepositoryCustom;
 import com.yong.model.Mark;
 import lombok.AllArgsConstructor;
@@ -47,6 +48,7 @@ public class MarkRepositoryImpl implements MarkRepositoryCustom {
                 .and("patron").as("patron")
                 .andExpression("substrCP(gamingDate,0,8)").as("gamingDate")
                 .andExpression("add(subtract(endDate,startDate),ifNull(pauseTime,0))").as("hours")
+
                 .and("win").as("buyIn")
                 .andExpression("tt.dd").as("dd")
             ,
@@ -63,7 +65,21 @@ public class MarkRepositoryImpl implements MarkRepositoryCustom {
             .and("hours").as("hours")
             .and("dd").as("dd")
         );
-            List<HotPlayerPatron> result = operations.aggregate(aggregation,"mark",HotPlayerPatron.class).getMappedResults();
+        List<HotPlayerPatron> result = operations.aggregate(aggregation,"mark",HotPlayerPatron.class).getMappedResults();
         return result;
+    }
+
+    @Override
+    public List<PatronValue> findAggregateBuyReduce(){
+        Aggregation aggregation = newAggregation(
+            group("patron")
+                .sum("win").as("win"),
+            project()
+//                .and("patron").previousOperation()
+                .and("_id").as("tableId")
+//                .and("patron").previousOperation()
+                .and("win").as("value")
+        );
+        return operations.aggregate(aggregation,"mark",PatronValue.class).getMappedResults();
     }
 }

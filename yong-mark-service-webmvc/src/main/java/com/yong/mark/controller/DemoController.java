@@ -1,6 +1,8 @@
 package com.yong.mark.controller;
 
 import com.yong.mark.model.HotPlayerPatron;
+import com.yong.mark.model.HotPlayerSummary;
+import com.yong.mark.model.PatronValue;
 import com.yong.mark.repository.MarkRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,7 +56,21 @@ public class DemoController {
     }
 
     @GetMapping("/agg")
-    private List<HotPlayerPatron> testAggregate(){
-        return markRepository.findAggregateByCustom();
+    private HotPlayerSummary testAggregate(){
+        List<HotPlayerPatron> patronList= markRepository.findAggregateByCustom();
+        HotPlayerSummary summary = new HotPlayerSummary();
+        summary.setPatronList(patronList);
+        long buyIn = patronList.stream().mapToLong(p -> p.getBuyIn()).sum();
+        long dd = patronList.stream().mapToLong(p -> p.getDd()).sum();
+        long hours = patronList.stream().mapToLong(p -> p.getHours()).sum();
+        summary.setHours(hours);
+        summary.setBuyIn(buyIn);
+        summary.setDd(dd);
+        return summary;
+    }
+
+    @GetMapping("/getLastValue")
+    private List<PatronValue> testReduce(){
+        return markRepository.findAggregateBuyReduce();
     }
 }

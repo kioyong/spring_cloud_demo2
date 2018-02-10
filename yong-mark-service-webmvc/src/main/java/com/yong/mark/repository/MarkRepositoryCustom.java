@@ -1,6 +1,7 @@
 package com.yong.mark.repository;
 
 import com.yong.mark.model.HotPlayerPatron;
+import com.yong.mark.model.PatronValue;
 import com.yong.model.Mark;
 
 import java.util.List;
@@ -13,4 +14,5 @@ public interface MarkRepositoryCustom {
 
     List<Mark> findAllActivityItems();
     List<HotPlayerPatron> findAggregateByCustom();
+    List<PatronValue> findAggregateBuyReduce();
 }
