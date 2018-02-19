@@ -5,10 +5,9 @@ import com.yong.mark.model.PatronValue;
 import com.yong.mark.repository.MarkRepositoryCustom;
 import com.yong.model.Mark;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.aggregation.*;
+import org.springframework.data.mongodb.core.aggregation.Aggregation;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -16,7 +15,6 @@ import java.util.Date;
 import java.util.List;
 
 import static org.springframework.data.mongodb.core.aggregation.Aggregation.*;
-import static org.springframework.data.mongodb.core.aggregation.LookupOperation.newLookup;
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 
 /**
@@ -60,8 +58,8 @@ public class MarkRepositoryImpl implements MarkRepositoryCustom {
             .sum("dd").as("dd"),
             project()
             .and("patron").as("patron")
-            .and("gamingDate").as("gameDate")
-            .and("buyIn").as("buyIn")
+                .and("gamingDate").as("gameDate")
+                .and("buyIn").as("buyIn")
             .and("hours").as("hours")
             .and("dd").as("dd")
         );
