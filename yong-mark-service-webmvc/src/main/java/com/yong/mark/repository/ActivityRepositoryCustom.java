@@ -6,5 +6,5 @@ import com.yong.model.ActivitySummaryVo;
 import java.util.List;
 
 public interface ActivityRepositoryCustom {
-    List<Activity> getActivitySummary();
+    List<ActivitySummaryVo> getActivitySummary();
 }

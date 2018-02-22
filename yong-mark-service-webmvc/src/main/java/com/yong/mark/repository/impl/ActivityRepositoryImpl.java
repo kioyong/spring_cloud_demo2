@@ -7,6 +7,7 @@ import com.yong.model.ActivitySummaryVo;
 import lombok.AllArgsConstructor;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.aggregation.Aggregation;
+import org.springframework.data.mongodb.core.aggregation.ArrayOperators;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -26,13 +27,15 @@ public class ActivityRepositoryImpl implements ActivityRepositoryCustom {
     private final MongoOperations operations;
 
     @Override
-    public List<Activity> getActivitySummary() {
-//        Aggregation aggregation = newAggregation(
-//            project()
-//            .and("_id").as("id")
-//        );
-//        List<Activity> result = operations.aggregate(aggregation,"activity",Activity.class).getMappedResults();
-//        return result;
-        return null;
+    public List<ActivitySummaryVo> getActivitySummary() {
+        Aggregation aggregation = newAggregation(
+            project()
+            .and("_id").as("id")
+            .andExpression("reduce(activitySessions,0,add($$value,sum($$this.fills.value)))").as("fill")
+            .andExpression("reduce(activitySessions,0,add($$value,sum($$this.credits.value)))").as("credit")
+            .andExpression("sum(activitySessions.value)").as("opener")
+        );
+        List<ActivitySummaryVo> result = operations.aggregate(aggregation,"activity",ActivitySummaryVo.class).getMappedResults();
+        return result;
     }
 }

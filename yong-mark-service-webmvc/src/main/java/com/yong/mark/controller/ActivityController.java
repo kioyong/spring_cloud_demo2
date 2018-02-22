@@ -23,7 +23,7 @@ public class ActivityController {
     }
 
     @GetMapping("/summary")
-    private List<Activity> getSummary(){
+    private List<ActivitySummaryVo> getSummary(){
         return activityRepository.getActivitySummary();
     }
 }
