@@ -7,8 +7,8 @@ spring:
       name: mark
   data:
     mongodb:
-      uri: mongodb://localhost:27017/demo2
-      database: demo2
+      uri: mongodb://localhost:27017/demo
+      database: demo
   profiles:
     active: dev
   cloud:
