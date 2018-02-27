@@ -9,8 +9,8 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017/demo
       database: demo
-  profiles:
-    active: dev
+#  profiles:
+#    active: dev
   cloud:
 #    uri: https://gemsv2-dev-config.melco-resorts.com/config/
 
@@ -20,7 +20,7 @@ spring:
 logging:
   level:
     com.yong: DEBUG
-
+    org.springframework.cloud.config.client: DEBUG
 management:
   security:
     enabled: false
