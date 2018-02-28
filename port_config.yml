@@ -6,6 +6,7 @@ port:
   yong-mark-api: 8080
   yong-mark-service-webflux: 9001,9002
   yong-mark-service-webmvc: 9003,9004
+  yong-location-service: 9005
   mongoDB: 27017
   kafka: 9092
   zookeeper: 2181

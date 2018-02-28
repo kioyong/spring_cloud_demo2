@@ -9,13 +9,7 @@ server:
 
 mark-service:
   ribbon:
-#    listOfServers: 127.0.0.1:9002,127.0.0.1:9001
     listOfServers: http://127.0.0.1:9003
-#    ServerListRefreshInterval: 15000
-#    ConnectTimeout: 500
-#    ReadTimeout: 1000
-#    MaxTotalHttpConnections: 500
-#    MaxConnectionsPerHost: 100
 
 hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 50000
 
