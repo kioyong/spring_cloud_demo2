@@ -41,7 +41,7 @@ public class DemoController {
     private String hello(@PathVariable("name") String name) {
 //        restTemplate.postForEntity("http://localhost:8080/hello",name,null );
 //        return forObject;
-        return "hello from mark service webmvc!1232222333!" + name;
+        return "hello from mark service webmvc!5222 552!" + name;
     }
 
     @GetMapping("/error1")

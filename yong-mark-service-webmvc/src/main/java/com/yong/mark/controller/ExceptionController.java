@@ -32,7 +32,7 @@ public class ExceptionController {
 
     @ExceptionHandler(Exception.class)
     public Response handleAllException(Exception ex) {
-        log.debug("handle Exception!");
+        log.debug("handle Exception!  ");
         List<Map<String, String>> list = Arrays.stream(Throwables.getRootCause(ex).getStackTrace())
             .filter(t ->
                 t.getClassName().startsWith("com.yong") &&
