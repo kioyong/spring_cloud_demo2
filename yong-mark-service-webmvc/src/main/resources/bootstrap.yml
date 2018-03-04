@@ -1,6 +1,9 @@
 server:
   port: 9003
 #  port: 9004
+  servlet:
+    context-path: /mark
+
 
 spring:
   application:
@@ -21,6 +24,7 @@ logging:
   level:
     com.yong: DEBUG
     org.springframework.cloud.config.client: DEBUG
+
 management:
   security:
     enabled: false

@@ -38,25 +38,34 @@ public class DemoController {
     private String testString;
 
     @GetMapping("/hello/{name}")
-    private String hello(@PathVariable("name") String name) {
+    public String hello(@PathVariable("name") String name) {
 //        restTemplate.postForEntity("http://localhost:8080/hello",name,null );
 //        return forObject;
         return "hello from mark service webmvc!5222 552!" + name;
     }
+    @GetMapping("/hello")
+    public String hello(){
+        try {
+            Thread.sleep(1000l);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "return hello from mark";
+    }
 
     @GetMapping("/error1")
-    private String error() {
+    public String error() {
         throw new RuntimeException("oh !~!@#!");
     }
 
     @GetMapping("/getconfig")
-    private String getConfig() {
+    public String getConfig() {
         log.debug("testString = {}", testString);
         return "testString = " + testString;
     }
 
     @GetMapping("/agg")
-    private HotPlayerSummary testAggregate(){
+    public HotPlayerSummary testAggregate(){
         List<HotPlayerPatron> patronList= markRepository.findAggregateByCustom();
         HotPlayerSummary summary = new HotPlayerSummary();
         summary.setPatronList(patronList);
@@ -70,7 +79,9 @@ public class DemoController {
     }
 
     @GetMapping("/getLastValue")
-    private List<PatronValue> testReduce(){
+    public List<PatronValue> testReduce(){
         return markRepository.findAggregateBuyReduce();
     }
+
+
 }
