@@ -1,14 +1,13 @@
 package com.yong.mark.controller;
 
+import com.yong.mark.repository.MarkRepository;
 import com.yong.mark.service.DemoService;
 import com.yong.mark.vo.HotPlayerPatron;
 import com.yong.mark.vo.HotPlayerSummary;
 import com.yong.mark.vo.PatronValue;
-import com.yong.mark.repository.MarkRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,13 +43,22 @@ public class DemoController {
     private MarkRepository markRepository;
 
     @Value("${yong.string}")
-    private String testString;
+    public String testString;
 
     @GetMapping("/hello/{name}")
     public String hello(@PathVariable("name") String name) {
 //        restTemplate.postForEntity("http://localhost:8080/hello",name,null );
 //        return forObject;
-        return "hello from mark service webmvc!123" + name;
+        return "hello from mark service webmvc!5222 552!" + name;
+    }
+    @GetMapping("/hello")
+    public String hello(){
+        try {
+            Thread.sleep(1000l);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "return hello from mark";
     }
 
     @GetMapping("/error1")

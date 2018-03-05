@@ -49,7 +49,7 @@ public class ActivityRepositoryImpl implements ActivityRepositoryCustom {
     }
 
 //    project("id","opener","closer")
-//                .and("location").as("tableId")
+//                .and("property").as("tableId")
 //                .andExpression("reduce(activitySessions,new Object[]{},concatArrays('$$value',filter('$$this.fills','fills','$$fills.status'=='ACKNOWLEDGED' || '$$fills.status'=='CONSUMATED')))").as("fills")
 //                .andExpression("reduce(activitySessions,new Object[]{},concatArrays('$$value',filter('$$this.credits','credits','$$credits.status'=='ACKNOWLEDGED' || '$$credits.status'=='CONSUMATED')))").as("credits")
 //                .andExpression("reduce(activitySessions,new Object[]{},concatArrays('$$value',$$this.dropboxUpdates))").as("dropBoxUpdates")

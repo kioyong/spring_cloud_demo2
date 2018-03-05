@@ -4,6 +4,7 @@ import com.yong.api.client.MarkClient;
 import com.yong.model.Mark;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
  * @date 2017/12/10
  */
 @RestController
+@RequestMapping("/mark")
 @AllArgsConstructor
 public class MarkController{
 
