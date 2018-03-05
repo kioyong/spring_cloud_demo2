@@ -1,4 +1,4 @@
-package com.yong.mark.model;
+package com.yong.mark.vo;
 
 /**
  * @acthor yong.a.liang

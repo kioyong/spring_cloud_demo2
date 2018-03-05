@@ -1,7 +1,7 @@
 package com.yong.mark.repository.impl;
 
-import com.yong.mark.model.HotPlayerPatron;
-import com.yong.mark.model.PatronValue;
+import com.yong.mark.vo.HotPlayerPatron;
+import com.yong.mark.vo.PatronValue;
 import com.yong.mark.repository.MarkRepositoryCustom;
 import com.yong.model.Mark;
 import lombok.AllArgsConstructor;

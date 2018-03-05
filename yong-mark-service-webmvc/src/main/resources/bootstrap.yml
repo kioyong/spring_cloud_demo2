@@ -9,15 +9,17 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017/demo
       database: demo
+
 #  profiles:
 #    active: dev
-  cloud:
+#  cloud:
 #    uri: https://gemsv2-dev-config.melco-resorts.com/config/
 
-  devtools:
-    reload:
-      trigger-file: .reloadtrigger
+#  devtools:
+#    reload:
+#      trigger-file: .reloadtrigger
 logging:
+#  file: application.log
   level:
     com.yong: DEBUG
     org.springframework.cloud.config.client: DEBUG

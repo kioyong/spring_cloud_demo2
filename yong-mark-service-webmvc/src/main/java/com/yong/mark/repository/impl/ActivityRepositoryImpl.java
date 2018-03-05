@@ -1,20 +1,16 @@
 package com.yong.mark.repository.impl;
 
-import com.yong.mark.model.HotPlayerPatron;
 import com.yong.mark.repository.ActivityRepositoryCustom;
-import com.yong.model.Activity;
 import com.yong.model.ActivitySummaryVo;
 import lombok.AllArgsConstructor;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.aggregation.Aggregation;
-import org.springframework.data.mongodb.core.aggregation.ArrayOperators;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 import static org.springframework.data.mongodb.core.aggregation.Aggregation.*;
 import static org.springframework.data.mongodb.core.aggregation.Aggregation.project;
-import static org.springframework.data.mongodb.core.query.Criteria.where;
 
 /**
  * @author LiangYong

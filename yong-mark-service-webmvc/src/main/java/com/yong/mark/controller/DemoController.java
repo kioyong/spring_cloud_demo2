@@ -1,13 +1,14 @@
 package com.yong.mark.controller;
 
-import com.yong.mark.model.HotPlayerPatron;
-import com.yong.mark.model.HotPlayerSummary;
-import com.yong.mark.model.PatronValue;
+import com.yong.mark.service.DemoService;
+import com.yong.mark.vo.HotPlayerPatron;
+import com.yong.mark.vo.HotPlayerSummary;
+import com.yong.mark.vo.PatronValue;
 import com.yong.mark.repository.MarkRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,6 +31,14 @@ public class DemoController {
 //    public RestTemplate getRestTemplate(@Autowired RestTemplateBuilder restTemplateBuilder){
 //        return restTemplateBuilder.build();
 //    }
+    @Autowired
+    private DemoService demoService;
+
+//    @Bean
+//    public DemoService demoServiceCreater(){
+//        return (a)-> a.concat("123");
+//    }
+
 
     @Autowired
     private MarkRepository markRepository;
@@ -38,25 +47,25 @@ public class DemoController {
     private String testString;
 
     @GetMapping("/hello/{name}")
-    private String hello(@PathVariable("name") String name) {
+    public String hello(@PathVariable("name") String name) {
 //        restTemplate.postForEntity("http://localhost:8080/hello",name,null );
 //        return forObject;
-        return "hello from mark service webmvc!1232222333!" + name;
+        return "hello from mark service webmvc!123" + name;
     }
 
     @GetMapping("/error1")
-    private String error() {
+    public String error() {
         throw new RuntimeException("oh !~!@#!");
     }
 
     @GetMapping("/getconfig")
-    private String getConfig() {
+    public String getConfig() {
         log.debug("testString = {}", testString);
         return "testString = " + testString;
     }
 
     @GetMapping("/agg")
-    private HotPlayerSummary testAggregate(){
+    public HotPlayerSummary testAggregate(){
         List<HotPlayerPatron> patronList= markRepository.findAggregateByCustom();
         HotPlayerSummary summary = new HotPlayerSummary();
         summary.setPatronList(patronList);
@@ -70,7 +79,12 @@ public class DemoController {
     }
 
     @GetMapping("/getLastValue")
-    private List<PatronValue> testReduce(){
+    public List<PatronValue> testReduce(){
         return markRepository.findAggregateBuyReduce();
+    }
+
+    @GetMapping("/name/{name}")
+    public String getName(@PathVariable(name = "name") String name){
+        return demoService.getName(name);
     }
 }
