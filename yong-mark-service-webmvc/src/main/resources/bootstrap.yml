@@ -12,11 +12,10 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017/demo
       database: demo
-
-#  profiles:
-#    active: dev
-#  cloud:
-#    uri: https://gemsv2-dev-config.melco-resorts.com/config/
+  profiles:
+    active: dev
+  cloud:
+    uri: localhost:8888
 
 #  devtools:
 #    reload:
