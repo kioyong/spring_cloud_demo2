@@ -7,4 +7,5 @@ package com.yong.mark.service;
 public interface DemoService {
 
     String getName(String id);
+    String getCacheString(String id);
 }

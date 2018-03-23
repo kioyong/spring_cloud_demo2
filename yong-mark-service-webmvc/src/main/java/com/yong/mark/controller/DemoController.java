@@ -8,6 +8,7 @@ import com.yong.mark.vo.PatronValue;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,7 +24,7 @@ import java.util.List;
 public class DemoController {
 
 
-//    @Autowired
+    //    @Autowired
 //    private RestTemplate restTemplate;
 //
 //    @Bean
@@ -51,8 +52,9 @@ public class DemoController {
 //        return forObject;
         return "hello from mark service webmvc!5222 552!" + name;
     }
+
     @GetMapping("/hello")
-    public String hello(){
+    public String hello() {
         try {
             Thread.sleep(1000l);
         } catch (InterruptedException e) {
@@ -73,8 +75,8 @@ public class DemoController {
     }
 
     @GetMapping("/agg")
-    public HotPlayerSummary testAggregate(){
-        List<HotPlayerPatron> patronList= markRepository.findAggregateByCustom();
+    public HotPlayerSummary testAggregate() {
+        List<HotPlayerPatron> patronList = markRepository.findAggregateByCustom();
         HotPlayerSummary summary = new HotPlayerSummary();
         summary.setPatronList(patronList);
         long buyIn = patronList.stream().mapToLong(p -> p.getBuyIn()).sum();
@@ -87,12 +89,19 @@ public class DemoController {
     }
 
     @GetMapping("/getLastValue")
-    public List<PatronValue> testReduce(){
+    public List<PatronValue> testReduce() {
         return markRepository.findAggregateBuyReduce();
     }
 
     @GetMapping("/name/{name}")
-    public String getName(@PathVariable(name = "name") String name){
+    public String getName(@PathVariable(name = "name") String name) {
         return demoService.getName(name);
     }
+
+    @GetMapping("/cache/{test}")
+    public String getCache(@PathVariable String test) {
+        return demoService.getCacheString(test);
+    }
+
+
 }
