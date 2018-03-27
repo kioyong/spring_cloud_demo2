@@ -5,7 +5,7 @@
 
 	<groupId>com.yong.location</groupId>
 	<artifactId>yong-location-service</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.0.BUILD-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>yong-location-service</name>
@@ -13,7 +13,7 @@
     <parent>
         <groupId>com.yong.common</groupId>
         <artifactId>yong-spring-boot-application-starter</artifactId>
-        <version>1.1.0</version>
+        <version>1.1.0.BUILD-SNAPSHOT</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -39,15 +39,5 @@
         </plugins>
     </build>
 
-    <pluginRepositories>
-        <pluginRepository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
 
 </project>
